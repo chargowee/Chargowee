@@ -1,0 +1,29 @@
+#crosshair {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+#crosshair::before,
+#crosshair::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+}
+
+#crosshair::before {
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+#crosshair::after {
+    top: 50%;
+    height: 2px;
+    width: 100%;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aim Trainer</title>
+    <style>
+        #game-area {
+            width: 600px;
+            height: 400px;
+            border: 2px solid black;
+            position: relative;
+            cursor: none; /* Hide the default cursor */
+        }
+        .target {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #crosshair {
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+        .circle {
+            width: 20px;
+            height: 20px;
+            border: 2px solid;
+            border-radius: 50%;
+        }
+        .cross {
+            width: 20px;
+            height: 20px;
+        }
+        .cross::before,
+        .cross::after {
+            content: "";
+            position: absolute;
+            background-color: currentColor;
+        }
+        .cross::before {
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+        .cross::after {
+            top: 50%;
+            height: 2px;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            background-color: currentColor;
+            border-radius: 50%;
+        }
+        #control-panel {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #control-panel label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aim Trainer</h1>
+    <div id="game-area"></div>
+    <div id="crosshair" class="circle"></div>
+    <p>Level: <span id="level">1</span></p>
+    <p>Targets Hit: <span id="score">0</span></p>
+    <p>Misses: <span id="misses">0</span></p>
+    <div id="control-panel">
+        <label>
+            Crosshair Color:
+            <select id="color-select">
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+        </label>
+        <label>
+            Crosshair Shape:
+            <select id="shape-select">
+                <option value="circle">Circle</option>
+                <option value="cross">Cross</option>
+                <option value="dot">Dot</option>
+            </select>
+        </label>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
